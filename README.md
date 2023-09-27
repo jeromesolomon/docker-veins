@@ -23,7 +23,7 @@ $ git clone https://github.com/andrespp/docker-veins.git
 
 Omnet++ links have direct link protection with captcha verification, making it not possible to directly download the installer. 
 
-So, you need to download OMNeT++ manually from this [link](https://omnetpp.org/component/jdownloads/summary/32-release-older-versions/2325-omnetpp-5-3-linux).
+So, you need to download OMNeT++ manually from this [link](https://github.com/omnetpp/omnetpp/releases/download/omnetpp-5.3/omnetpp-5.3-src-linux.tgz).
 
 After the download, you repository should look like this
 
