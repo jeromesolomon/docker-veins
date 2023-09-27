@@ -17,6 +17,18 @@ RUN apt-get update && apt-get install -y xauth unzip wget vim \
 	add-apt-repository -y ppa:ubuntugis/ppa && \
 	apt-get update && apt-get -y install libosgearth-dev
 
+# install vncserver support
+RUN apt-get -y install tightvncserver
+RUN apt-get -y install x11-xserver-utils
+# vnc server fonts
+RUN apt-get install xfonts-base xfonts-100dpi xfonts-75dpi
+
+# expose ports for ssh
+EXPOSE 22
+# expose ports for vncserver
+# vncserver runs display 1 on port 5901 and display 2 on port 5902, et cetera
+EXPOSE 5901
+
 WORKDIR /root
 
 # Buil and Install SUMO

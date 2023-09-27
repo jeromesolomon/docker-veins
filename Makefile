@@ -32,6 +32,7 @@ run-bash:
 	docker run -it --rm -v /tmp/.X11-unix/:/tmp/.X11-unix/:ro \
 	-v $$(pwd)/data/:/root/omnetpp-5.3/samples/ \
 	-e XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) -e "DISPLAY" \
+	--privileged -p 2822:22 -p 5891:5901 \
 	$(IMAGE) bash
 
 #-u $$(id -u):$$(id -g) \
