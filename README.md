@@ -1,5 +1,4 @@
-docker-veins
-============
+# docker-veins
 
 Docker image for [Veins Simulator](https://veins.car2x.org/)
 
@@ -21,7 +20,7 @@ $ git clone https://github.com/andrespp/docker-veins.git
 
 ### Download OMNeT++
 
-Omnet++ links have direct link protection with captcha verification, making it not possible to directly download the installer. 
+Omnet++ links have direct link protection with captcha verification, making it not possible to directly download the installer.
 
 So, you need to download OMNeT++ manually from this [link](https://github.com/omnetpp/omnetpp/releases/download/omnetpp-5.3/omnetpp-5.3-src-linux.tgz).
 
@@ -73,8 +72,35 @@ Similar to the last example, this should create and start a launch configuration
 
 ## Requirements
 
-* Docker
-* X11 with xauth
+- Docker
+- X11 with xauth
 
 ## References
-* [Veins Instalation Tutorial](https://veins.car2x.org/tutorial/)
+
+- [Veins Instalation Tutorial](https://veins.car2x.org/tutorial/)
+
+## Steps to start
+
+1. start container
+   - windows
+     make start
+2. start vncserver
+   - linux
+     > tightvncserver
+     > export DISPLAY=":1"
+3. vnc into container
+   - windows
+     vnc into 127.0.0.1::5891
+4. start sumo
+
+   - windows
+     > make run-bash
+   - linux
+     > /root/veins-veins-4.7.1/sumo-launchd.py -vv -c sumo
+
+5. start omnet++
+   - windows
+     > make run-bash
+   - linux
+     > xhost +
+     > /root/omnetpp-5.3/bin/omnetpp

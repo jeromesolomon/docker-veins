@@ -27,8 +27,8 @@ run-omnet:
 	-e XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) -e "DISPLAY" \
        	$(IMAGE) omnet
 
-.PHONY: start-bash
-start-bash:
+.PHONY: start
+start:
 	docker run -it \
 	--env XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) \
 	--publish 2822:22 -p 5891:5901 \
