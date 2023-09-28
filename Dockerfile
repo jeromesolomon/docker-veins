@@ -20,8 +20,9 @@ RUN apt-get update && apt-get install -y xauth unzip wget vim \
 # install vncserver support
 RUN apt-get -y install tightvncserver
 RUN apt-get -y install x11-xserver-utils
-# vnc server fonts
-RUN apt-get install xfonts-base xfonts-100dpi xfonts-75dpi
+RUN apt-get -y install xfonts-base xfonts-100dpi xfonts-75dpi
+ENV USER="root"
+
 
 # expose ports for ssh
 EXPOSE 22
