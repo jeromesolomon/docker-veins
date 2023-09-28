@@ -27,12 +27,12 @@ run-omnet:
 	-e XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) -e "DISPLAY" \
        	$(IMAGE) omnet
 
+# TODO: fix or remove --volume mounts as they want work on mac and windows
 .PHONY: run-bash
 run-bash:
-	docker run -it --rm -v /tmp/.X11-unix/:/tmp/.X11-unix/:ro \
-	-v $$(pwd)/data/:/root/omnetpp-5.3/samples/ \
-	-e XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) -e "DISPLAY" \
-	--privileged -p 2822:22 -p 5891:5901 \
+	docker run -it --volume /tmp/.X11-unix/:/tmp/.X11-unix/:ro \
+	--volume $$(pwd)/data/:/root/omnetpp-5.3/samples/ \
+	--env XAUTH=$$(xauth list|grep `uname -n` | cut -d ' ' -f5) -e "DISPLAY" \
+	--publish 2822:22 -p 5891:5901 \
+	--hostname veins1 --name docker-veins \
 	$(IMAGE) bash
-
-#-u $$(id -u):$$(id -g) \
