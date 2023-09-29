@@ -32,7 +32,7 @@ EXPOSE 5901
 
 WORKDIR /root
 
-# Buil and Install SUMO
+# Build and Install SUMO
 # http://sumo.dlr.de/wiki/Installing/Linux_Build
 RUN wget https://downloads.sourceforge.net/project/sumo/sumo/version%200.32.0/sumo-src-0.32.0.tar.gz && \
 	tar zxf sumo-src-0.32.0.tar.gz && \
